@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "relayxapi"
+version = "0.1.0"
+description = "Python client for the RelayX X (Twitter) data API"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "RelayX" }]
+keywords = ["twitter", "x", "api", "twitter api", "x api", "scraper", "tweets"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
+  "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = []   # standard library only
+
+[project.urls]
+Homepage = "https://relayxapi.com"
+Documentation = "https://relayxapi.com/docs/"
+Source = "https://github.com/relayxapi/relayxapi-python"
+
+[tool.hatch.build.targets.wheel]
+packages = ["relayxapi"]

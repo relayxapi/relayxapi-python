@@ -1,0 +1,22 @@
+# Publish relayxapi to PyPI on a version tag (v0.1.0, …). Uses PyPI Trusted Publishing (OIDC) — no token
+# to store; configure the publisher once at https://pypi.org/manage/account/publishing/ for this repo.
+# Manual alternative: `python -m build && twine upload dist/*`.
+name: publish
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required for Trusted Publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install build
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
